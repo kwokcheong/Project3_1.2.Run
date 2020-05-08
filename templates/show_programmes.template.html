@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {%for r in results%}
+    <ul>
+        <li>Title: {{r.title}}</li>
+        <li>Duration: {{r.duration}}</li>
+        <li>Distance: {{r.distance}}</li>
+        <li>Description: {{r.description}}</li>
+        <a href="{{ url_for('delete_programme', programme_id=r._id)}}">Delete </a>
+        <a href="{{ url_for('edit_programme', programme_id=r._id)}}">Edit</a>
+    </ul>
+    {%endfor%}
+</body>
+</html>

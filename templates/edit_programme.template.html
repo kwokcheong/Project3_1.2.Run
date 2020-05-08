@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method='POST'>
+        <label>Title: </label>
+        <input type="text" name="programme_title" value={{programme.title}}/>
+        <br/>
+        <label>Distance: </label>
+        <input type="float" name="programme_distance" value={{programme.distance}}/>
+        <br/>
+        <label>Duration of run: </label>
+        <input type="text" name="programme_duration" value={{programme.duration}}/>
+        <br/>
+        <label>Description: </label>
+        <input type="text" name="programme_description" value={{programme.description}}/>
+        <br/>
+        <input type="submit"/>
+    </form>
+</body>
+</html>
