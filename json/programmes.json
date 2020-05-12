@@ -1,0 +1,30 @@
+[
+    {
+        "_id": ObjectId(),
+        "title": "2.4km training",
+        "image_url": "",
+        "duration": 12,
+        "difficulty": "Hard",
+        "tag": [ "tapered", "Fartleg", "sprinting"],
+        "description": "Really intense training plan: 1x400m",
+        "category": "Sprint",
+        "reviews": [
+            {
+            "_id": ObjectId(),
+            "date": "",
+            "programme_id":"" ,
+            "reviewer_id":"",
+            "reviewer_name":"" ,
+            "review": "Very tough workout"
+            },
+            {
+            "_id": ObjectId(),
+            "date": "",
+            "programme_id":"" ,
+            "reviewer_id":"",
+            "reviewer_name":"" ,
+            "review": "Very tough workout"
+            }
+        ]
+    }
+]

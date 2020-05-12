@@ -1,0 +1,34 @@
+[
+    {
+        "_id": ObjectId(),
+        "title": "Group Run",
+        "image_url": "n/a",
+        "difficulty": "Hard",
+        "category": "Sprint",
+        "date": "2020-08-24",
+        "location": "NUS Track",
+        "description": "Fast paced group run",
+        "duration": "1 hr",
+        "time": "0800",
+        "tag": ["Sprinting"],
+        "sign_up_count": 2,
+        "sign_ups": [
+            {
+            "_id": ObjectId(),
+            "First_Name": "Thomas",
+            "Last_Name": "Ng",
+            "Contact": "98877223",
+            "Email": "thomass@hotmail.com",
+            "Date": new Date()
+            },
+            {
+                "_id": ObjectId(),
+                "First_Name": "Shermaine",
+                "Last_Name":"Ng",
+                "Contact": "98222323",
+                "Email": "shermaine@hotmail.com",
+                "Date" : new Date()
+            }
+        ]
+    }
+]

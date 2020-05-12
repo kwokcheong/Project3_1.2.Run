@@ -1,20 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    {%for r in results%}
-    <ul>
-        <li>Title: {{r.title}}</li>
-        <li>Duration: {{r.duration}}</li>
-        <li>Distance: {{r.distance}}</li>
-        <li>Description: {{r.description}}</li>
-        <a href="{{ url_for('delete_programme', programme_id=r._id)}}">Delete </a>
-        <a href="{{ url_for('edit_programme', programme_id=r._id)}}">Edit</a>
-    </ul>
-    {%endfor%}
-</body>
-</html>
+{%extends 'layout.template.html'%}
+
+    {%block content%}
+    <section id="banner">
+        <div class="content" id="running"> 
+            <h2> Events </h2>
+            <h4>You will never be alone.</h4>
+            <h4>Join various groups and be part of the community!</h4>
+        </div>
+    </section>
+
+    <div class="row">
+        <form class="form-group" method="GET">
+            <input type="text" name="search-by" placeholder="Search for an event">
+
+        <input type="submit" value="search"/>
+    </form>
+    </div>
+    
+    <div class="row">
+    <button type="button" class="btn btn-success"><a style="color: rgb(255, 255, 255); text-decoration: none;" href="{{ url_for('create_programmes')}}">Create New Event</a></button>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            {%for r in results%}
+                <div class="col-sm|md|lg|xl">
+                    <div class="card text-white" style="width: 18rem;">
+                        <img class="card-img-top" src="https://www.runtastic.com/blog/wp-content/uploads/2018/04/thumbnail_8-tips-beginner_1200x800-1024x683.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5>{{r.title}}</h5>
+                            <p >{{r.duration}} weeks</p>
+                            <p >Tags: {{r.tag}}</p>
+                            <p >Category: {{r.category}}</p>
+                            <a href="{{ url_for('delete_programme', programme_id=r._id)}}"><button type="button" class="btn btn-danger">Delete </button></a>
+                            <a href="{{ url_for('edit_programme', programme_id=r._id)}}">Edit</a>
+                        </div>
+                    </div>
+                </div>
+            {%endfor%}
+    </div>
+</div>
+{%endblock%}

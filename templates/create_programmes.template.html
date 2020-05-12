@@ -1,25 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form method='POST'>
-        <label>Title: </label>
-        <input type="text" name="programme_title"/>
+{%extends 'layout.template.html'%}
+
+{%block content%}
+<form method='POST'>
+  <div class="form-group">
+    <label>Event Name: </label>
+    <input type="text" class="form-control" placeholder="Enter Event Name" name="programme_title"/>
+  </div>
+  <div class="form-group">
+        <label>Duration of event: </label>
+        <input type="text" class="form-control" placeholder="Enter Duration" name="programme_duration"/>
+      </div>
+      <div class="form-group">
+        <label>Date of event: </label>
+        <input type="date" name="programme_date"/>
+      </div>
+        <label>Time of event: </label>
+        <input type="time" name="programme_time"/>
         <br/>
-        <label>Distance: </label>
-        <input type="float" name="programme_distance"/>
+        <label>Location of event: </label>
+        <input type="text" name="programme_location"/>
         <br/>
-        <label>Duration of run: </label>
-        <input type="text" name="programme_duration"/>
+        <label>Difficulty: </label>
+        <select id="Difficulty" name="programme_difficulty">
+            <option value="Easy">Easy</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+            <option value="Professional">Professional</option>
+          </select>
         <br/>
+        <label>Tags: </label>
+        <select id="cars" multiple name="programme_tags">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="opel">Opel</option>
+            <option value="audi">Audi</option>
+          </select>
+        <br/>
+        <label>Category: </label>
+        <select id="cars" multiple name="programme_tags">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="opel">Opel</option>
+          <option value="audi">Audi</option>
+        </select>
+      <br/>
         <label>Description: </label>
         <input type="text" name="programme_description"/>
-        <br/>
+        <br/><br/>
         <input type="submit"/>
     </form>
+{%endblock%}
+    
 </body>
 </html>
