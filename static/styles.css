@@ -3,7 +3,7 @@
 body {
     margin: 0;
     font-family: Helvetica, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #ffffff;
   }
 
   html,body{
@@ -173,7 +173,7 @@ body {
 }
 
 #content{
-    margin-top: 70px;
+    margin-top: 64px;
 }
 
 section{
@@ -182,22 +182,34 @@ section{
     justify-content: center;
 }
 
-.card {
-    height: 25rem;
-    margin: 10px;
-    border-radius: 25px;
-    background-color:#282828;
+.flex-container {
+    padding: 45px;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
 }
 
-.card img{
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
+.card {
+  text-align: center;
+  justify-content: center;
+  border-color: rgb(235, 235, 235);
+  border-radius: 10px;
+  width: 100%;
 }
+
+.card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+
 
 /*events */
 #banner {
   margin:0;
-  padding:0;
   box-sizing: border-box;
   outline: none;
   font-family: "Poppins", sans-serif;
@@ -206,8 +218,7 @@ section{
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 50px 0;
-  background-color: rgb(247, 247, 247);
+  background-color: rgb(255, 255, 255);
 }
 
 .content{

@@ -1,13 +1,13 @@
 {%extends 'layout.template.html'%}
 
     {%block content%}
-    <section id="banner">
-        <div class="content" id="running"> 
+    <div id="banner">
+        <div class="content" id="running" style="padding:40px;"> 
             <h2> Events </h2>
             <h4>You will never be alone.</h4>
             <h4>Join various groups and be part of the community!</h4>
         </div>
-    </section>
+    </div>
 
     <div class="row">
         <form class="form-group" method="GET">
@@ -18,26 +18,22 @@
     </div>
     
     <div class="row">
-    <button type="button" class="btn btn-success"><a style="color: rgb(255, 255, 255); text-decoration: none;" href="{{ url_for('create_programmes')}}">Create New Event</a></button>
+    <button type="button" class="btn btn-success"><a style=" text-decoration: none;" href="{{ url_for('create_programmes')}}">Create New Event</a></button>
     </div>
 
-    <div class="container">
-        <div class="row">
-            {%for r in results%}
-                <div class="col-sm|md|lg|xl">
-                    <div class="card text-white" style="width: 18rem;">
-                        <img class="card-img-top" src="https://www.runtastic.com/blog/wp-content/uploads/2018/04/thumbnail_8-tips-beginner_1200x800-1024x683.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5>{{r.title}}</h5>
-                            <p >{{r.duration}} weeks</p>
-                            <p >Tags: {{r.tag}}</p>
-                            <p >Category: {{r.category}}</p>
-                            <a href="{{ url_for('delete_programme', programme_id=r._id)}}"><button type="button" class="btn btn-danger">Delete </button></a>
-                            <a href="{{ url_for('edit_programme', programme_id=r._id)}}">Edit</a>
-                        </div>
-                    </div>
-                </div>
-            {%endfor%}
+    <div class="flex-container">
+        {%for r in results%}
+        <a style="text-decoration: none;" href="{{ url_for('programme_detail', programme_id=r._id)}}">
+        <div class="card mb-3">
+            <img class="card-img-top" src="{{r.image_url}}"  alt=""onerror="this.src='https://wmimg.azureedge.net/public/img/articles/why-are-east-african-runners-so-dominant-/why-are-east-african-runners-so-dominant-.jpg'">
+            <div class="card-body">
+              <h5 class="card-title">{{r.title}}</h5>
+              <p class="card-text">{{r.difficulty}}</p>
+              <p class="card-text">{{r.category}}</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </a>
+        {%endfor%}
     </div>
-</div>
 {%endblock%}

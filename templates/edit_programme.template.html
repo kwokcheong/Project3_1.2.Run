@@ -2,24 +2,51 @@
 
 {%block content%}
 <form method='POST'>
-    <label>Title: </label>
-    <input type="text" name="programme_title" value={{programme.title}}>
-    <br/>
-    <label>Duration of run: </label>
-    <input type="text" name="programme_duration" value={{programme.duration}}>
-    <br/>
-    <label>Difficulty: </label>
-    <input type="text" name="programme_difficulty" value={{programme.difficulty}}>
-    <br/>
-    <label>Tags: </label>
-    <input type="text" name="programme_tags" value={{programme.tag}}>
-    <br/>
-    <label>Category: </label>
-    <input type="text" name="programme_category" value={{programme.category}}>
-    <br/>
-    <label>Description: </label>
-    <input type="text" name="programme_description" value={{programme.description}}>
-    <br/><br/>
-    <input type="submit"/>
-</form>
+    <form method='POST'>
+        <div class="form-group">
+          <label>Event Name: </label>
+          <input type="text" class="form-control" placeholder="Enter Event Name" name="programme_title" value="{{programme['title']}}" />
+        </div>
+        <div class="form-group">
+              <label>Duration of event: </label>
+              <input type="text" class="form-control" placeholder="Enter Duration" name="programme_duration" value="{{programme['duration']}}"/>
+            </div>
+            <div class="form-group">
+              <label>Date of event: </label>
+              <input type="date" name="programme_date"/>
+            </div>
+              <label>Time of event: </label>
+              <input type="time" name="programme_time" value="{{programme['duration']}}">
+              <br/>
+              <label>Location of event: </label>
+              <input type="text" name="programme_location" value="{{programme['location']}}"/>
+              <br/>
+              <label>Difficulty: </label>
+              <select id="Difficulty" name="programme_difficulty" value="{{programme['difficulty']}}">
+                  <option value="Easy">Easy</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Advanced">Advanced</option>
+                  <option value="Professional">Professional</option>
+                </select>
+              <br/>
+              <label>Category: </label>
+              <select id="category" multiple name="programme_category" value="{{programme['category']}}">
+                <option value="Long Distance">Long Distance</option>
+                <option value="Sprint">Sprint</option>
+                <option value="Half Marathon">Half Marathon</option>
+                <option value="Weight Loss">Weight Loss</option>
+                <option value="Everyone">Everyone</option>
+              </select>
+            <br/>
+              <label>Description: </label>
+              <input type="text" name="programme_description" value="{{programme['description']}}"/>
+              <br/><br/>
+      
+              <div class="form-group">
+                <label><b>Image: </b></label>
+                <input type="url" name="image" class="form-control" placeholder="Paste image URL" pattern="https://.*"/>      
+              </div>
+              
+              <input type="submit"/>
+          </form>
 {%endblock%}
