@@ -27,6 +27,8 @@ app.config["UPLOADED_IMAGES_URL"] = upload_dir
 images_upload_set = UploadSet('images', IMAGES)
 configure_uploads(app, images_upload_set)
 
+categories = ["Marathon","Half Marathon","Sprinting", "Short Distance", "Weight-Loss", "Everyone"]
+difficulty = ["Easy","Intermediate", "Advanced", "Professional", "Open"]
 
 @app.route('/')
 def home():
@@ -35,16 +37,29 @@ def home():
 @app.route('/show_programmes', methods=["GET"])
 def show_programmes(): 
     search_name = request.args.get('search-by')
+    search_category = request.args.getlist('search-category')
+    search_difficulty = request.args.getlist('search-difficulty')
     search_criteria = {}
-
+    projection={'title',"duration","difficulty", "tag", "category", "image_url"}
     if request.method =="GET":
         cursor = client[DB_NAME].programmes.find()
         if search_name: 
             search_criteria["title"] = re.compile(r'{}'.format(search_name), re.I)
-            projection={'title',"duration","difficulty", "tag", "category", "image_url"}
+            
+        
+        if len(search_category) > 0: 
+            search_criteria["category"] = {
+                '$in': search_category
+            }
+
+        if len(search_difficulty) > 0: 
+            search_criteria["difficulty"] = {
+                '$in': search_difficulty
+            }
+
             cursor = client[DB_NAME].programmes.find(search_criteria, projection)
 
-    return render_template('show_programmes.template.html', results = cursor)
+    return render_template('show_programmes.template.html', results = cursor, categories = categories, difficulties = difficulty)
 
 @app.route('/create_programmes', methods=["GET","POST"])
 def create_programmes():
@@ -72,6 +87,10 @@ def programme_detail(programme_id):
         "_id": ObjectId(programme_id)
     })
     return render_template('programme_details.template.html', programme = programme)
+
+
+@app.route('/programme_details/<programme_id>')
+
 
 @app.route("/delete_programmes/<programme_id>")
 def delete_programme(programme_id): 
