@@ -42,7 +42,7 @@ def show_programmes():
     search_criteria = {}
     projection={'title',"duration","difficulty", "tag", "category", "image_url"}
     if request.method =="GET":
-        cursor = client[DB_NAME].programmes.find()
+        cursor = client[DB_NAME].programmes.find().sort('date', pymongo.DESCENDING)
         if search_name: 
             search_criteria["title"] = re.compile(r'{}'.format(search_name), re.I)
             
@@ -74,22 +74,19 @@ def create_programmes():
             "category": request.form.get('programme_category'),
             "date": datetime.datetime.strptime(request.form.get('programme_date'), "%Y-%m-%d"),
             "time": datetime.datetime.strptime(request.form.get("programme_time"), '%H:%M'),
-            "tag": request.form.get("programme_tags"),
             "description": request.form.get("programme_description"),
             "duration": request.form.get('programme_duration'),
             "location": request.form.get("programme_location")
         })
     return redirect(url_for("show_programmes"))
 
-@app.route('/programme_details/<programme_id>')
+@app.route('/programme_details/<programme_id>' ,methods=["GET","POST"])
 def programme_detail(programme_id):
     programme = client[DB_NAME].programmes.find_one({
         "_id": ObjectId(programme_id)
     })
     return render_template('programme_details.template.html', programme = programme)
 
-
-@app.route('/programme_details/<programme_id>')
 
 
 @app.route("/delete_programmes/<programme_id>")
