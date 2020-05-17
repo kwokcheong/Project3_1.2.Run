@@ -21,14 +21,21 @@
         </div>
         </div>
       </div>
-
-
+      
+      {%for p in programme.reviews%}
+      <div class="card">
+      <h5 class="card-title">{{p.name}}</h5>
+      {{p.review}}
+      </div>
+      {%endfor%}
+      
       <h3 style="text-align: center;"> Submit Review</h3>
       <form id="form" method="POST" style="padding: 50px">
         <div class="form-group">
         <label> Name: </label>
         <input type="text" class="form-control" placeholder="Enter Name" name="reviewer_name"/>
         </div>
+        
         <div class="rate-container">
           <i class="fa fa-star "></i>
           <i class="fa fa-star "></i>
@@ -36,9 +43,10 @@
           <i class="fa fa-star "></i>
           <i class="fa fa-star "></i>
       </div>
+    </br>
         <div class="form-group">
           <label> Comment: </label>
-          <textarea type="text" rows="6" class="form-control" placeholder="Enter review" name="reviewer_name"></textarea>  
+          <textarea type="text" rows="6" class="form-control" placeholder="Enter review" name="review"></textarea>  
           </div>
           <input type="submit" value="Submit Review" />
       </form>

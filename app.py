@@ -85,6 +85,26 @@ def programme_detail(programme_id):
     programme = client[DB_NAME].programmes.find_one({
         "_id": ObjectId(programme_id)
     })
+
+    if request.method == "GET": 
+        return render_template('programme_details.template.html', programme = programme)
+
+    if request.method == "POST": 
+        client[DB_NAME].programmes.update_one({ 
+            "_id": ObjectId(programme_id)
+        }, {
+            '$push': {
+                'reviews':{
+                    '_id': ObjectId(),
+                    'programme_id': ObjectId(programme_id),
+                    'name': request.form.get('reviewer_name'),
+                    'review': request.form.get('review'),
+                    'date_review': datetime.datetime.now()
+                }
+            }
+        })
+        return redirect(url_for("programme_detail", programme_id = programme_id))
+
     return render_template('programme_details.template.html', programme = programme)
 
 
