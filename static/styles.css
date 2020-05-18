@@ -246,15 +246,3 @@ section .content h2{
 #running h2{
   background-image: url("https://image.cnbcfm.com/api/v1/image/104561687-London_Marathon.jpg?v=1578673377&w=1400&h=950") ;
 }
-
-/* Star rating */
-
-
-.rate-container i {
-  float: right;
-}
-
-.rate-container i:HOVER,
-.rate-container i:HOVER ~ i {
-  color: gold;
-}
