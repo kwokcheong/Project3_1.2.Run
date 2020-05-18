@@ -142,15 +142,15 @@ def edit_programme(programme_id):
         }, 
         {
             "$set": {
-                "title": request.form.get('programme_title'),
-                "duration": request.form.get('programme_duration'),
+               "title": request.form.get('programme_title'),
+                "image_url": request.form.get("image"),
                 "difficulty": request.form.get('programme_difficulty'),
-                "tag": request.form.get('programme_tag'),
                 "category": request.form.get('programme_category'),
-                "location": request.form.get('programme_location'),
-                "date": request.form.get('programme_date'),
-                "time": request.form.get('programme_time'),
-                "description": request.form.get("programme_description")
+                "date": datetime.datetime.strptime(request.form.get('programme_date'), "%Y-%m-%d"),
+                "time": datetime.datetime.strptime(request.form.get("programme_time"), '%H:%M'),
+                "description": request.form.get("programme_description"),
+                "duration": request.form.get('programme_duration'),
+                "location": request.form.get("programme_location")
             }
         })
         return redirect(url_for("show_programmes"))
