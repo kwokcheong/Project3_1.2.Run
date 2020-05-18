@@ -6,6 +6,7 @@ from bson.objectid import ObjectId
 from dotenv import load_dotenv
 import re
 from flask_uploads import UploadSet, configure_uploads, IMAGES, patch_request_class
+import math
 
 # load env file
 load_dotenv()
@@ -40,9 +41,19 @@ def show_programmes():
     search_category = request.args.getlist('search-category')
     search_difficulty = request.args.getlist('search-difficulty')
     search_criteria = {}
+
+    #pagination for show programmes
+    show_per_page = 4
+    max_pages = math.ceil(client[DB_NAME].programmes.count() / show_per_page)
+
+    current_page = int(request.args.get('current_page',1))
+
+    #only show first ten
+    
+
     projection={'title',"duration","difficulty", "tag", "category", "image_url"}
     if request.method =="GET":
-        cursor = client[DB_NAME].programmes.find().sort('date', pymongo.DESCENDING)
+        cursor = client[DB_NAME].programmes.find().sort('date', pymongo.DESCENDING).skip((show_per_page)*(current_page-1)).limit(show_per_page)
         if search_name: 
             search_criteria["title"] = re.compile(r'{}'.format(search_name), re.I)
             
@@ -57,9 +68,9 @@ def show_programmes():
                 '$in': search_difficulty
             }
 
-            cursor = client[DB_NAME].programmes.find(search_criteria, projection)
+            cursor = client[DB_NAME].programmes.find(search_criteria, projection).skip(0).limit(show_per_page)
 
-    return render_template('show_programmes.template.html', results = cursor, categories = categories, difficulties = difficulty)
+    return render_template('show_programmes.template.html', results = cursor, categories = categories, difficulties = difficulty, max_pages = max_pages)
 
 @app.route('/create_programmes', methods=["GET","POST"])
 def create_programmes():

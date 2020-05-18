@@ -1,5 +1,3 @@
-console.log("HI")
-
 
 function validateForm() {
         let title = document.forms["form"]["programme_title"].value;

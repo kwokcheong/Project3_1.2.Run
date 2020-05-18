@@ -32,6 +32,18 @@
     <div class="row">
     <button type="button" class="btn btn-success"><a style=" text-decoration: none;" href="{{ url_for('create_programmes')}}">Create New Event</a></button>
     </div>
+    
+    <ul class="pagination">
+        <li class="page-item">
+            <a class="page-link" href="?current_page=1" aria-label="First">First Page</a>
+            {%for p in range(1,max_pages+1)%}
+            <li class="page-item"><a class="page-link" href="?current_page={{p}}">{{p}}</a></li>
+            {%endfor%}
+        <li class="page-item">
+            <a class="page-link" href="?current_page={{max_pages}}" aria-label="Last">Last Page</a>
+        </li>
+    </ul>
+
 
     <div class="flex-container">
         {%for r in results%}
