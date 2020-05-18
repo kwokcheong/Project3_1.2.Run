@@ -21,9 +21,9 @@
             {% for d in difficulties %}
             <input class="form-check-input" type="checkbox" name ="search-difficulty" value="{{d}}"/>
             <label class="form-check"> {{d}} </label>
-        {%endfor%}
-        </div>
-        <input type="submit" value="search"/>
+            {%endfor%}
+            </div>
+            <input type="submit" class="button colored-btn select-btn" value="Search">
     </form>
     </div>
 
@@ -54,10 +54,12 @@
               <h5 class="card-title">{{r.title}}</h5>
               <p class="card-text">{{r.difficulty}}</p>
               <p class="card-text">{{r.category}}</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <p class="card-text"><small class="text-muted">Created on {{r.date_of_post.strftime('%Y-%m-%d')}} by {{r.author}}</small></p>
             </div>
           </div>
         </a>
+        {%else%}
+        <div style="text-align: center;">No results found</div>
         {%endfor%}
     </div>
 {%endblock%}

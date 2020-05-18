@@ -27,6 +27,7 @@
 <div>
   <h2>{{p.name}}</h2>
   {{p.review}}
+  <p class="card-text"><small class="text-muted">Posted on {{p.date_review.strftime('%Y-%m-%d')}}</small></p>
 </div>
 {%endfor%}
 
@@ -40,7 +41,7 @@
   </br>
   <div class="form-group">
     <label> Comment: </label>
-    <textarea type="text" rows="6" class="form-control" placeholder="Enter review" name="review"></textarea>
+    <textarea type="text" rows="6" class="form-control" placeholder="Enter comment" name="review"></textarea>
   </div>
   <input type="submit" value="Submit Review" />
 </form>

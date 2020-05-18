@@ -37,7 +37,7 @@ def home():
 
 @app.route('/show_programmes', methods=["GET"])
 def show_programmes(): 
-    search_name = request.args.get('search-by')
+    search_title = request.args.get('search-by')
     search_category = request.args.getlist('search-category')
     search_difficulty = request.args.getlist('search-difficulty')
     search_criteria = {}
@@ -51,24 +51,27 @@ def show_programmes():
     #only show first ten
     
 
-    projection={'title',"duration","difficulty", "tag", "category", "image_url"}
+    
     if request.method =="GET":
         cursor = client[DB_NAME].programmes.find().sort('date', pymongo.DESCENDING).skip((show_per_page)*(current_page-1)).limit(show_per_page)
-        if search_name: 
-            search_criteria["title"] = re.compile(r'{}'.format(search_name), re.I)
+        if search_title: 
+            search_criteria["title"] = re.compile(r'{}'.format(search_title), re.I)
             
         
         if len(search_category) > 0: 
             search_criteria["category"] = {
-                '$in': search_category
+                '$all': search_category
             }
+            print(search_category)
 
         if len(search_difficulty) > 0: 
             search_criteria["difficulty"] = {
-                '$in': search_difficulty
+                '$all': search_difficulty
             }
 
-            cursor = client[DB_NAME].programmes.find(search_criteria, projection).skip(0).limit(show_per_page)
+        projection={'title',"duration","difficulty","category", "image_url", "date_of_post", "author"}
+
+        cursor = client[DB_NAME].programmes.find(search_criteria, projection).skip((show_per_page)*(current_page-1)).limit(show_per_page)
 
     return render_template('show_programmes.template.html', results = cursor, categories = categories, difficulties = difficulty, max_pages = max_pages)
 
@@ -87,7 +90,9 @@ def create_programmes():
             "time": datetime.datetime.strptime(request.form.get("programme_time"), '%H:%M'),
             "description": request.form.get("programme_description"),
             "duration": request.form.get('programme_duration'),
-            "location": request.form.get("programme_location")
+            "location": request.form.get("programme_location"),
+            "author": request.form.get("programme_author"), 
+            "date_of_post": datetime.datetime.now()
         })
     return redirect(url_for("show_programmes"))
 
