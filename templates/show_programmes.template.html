@@ -9,21 +9,40 @@
         </div>
     </div>
 
-    <div class="row">
+    <div>
+        
         <form class="form-group" method="GET">
-            <input type="text" name="search-by" placeholder="Search for an event">
+  
             <div>
+            <input class="filter" type="submit" id="All" name="categories" value="All" checked>
             {% for c in categories %}
-                <input class="form-check-input" type="checkbox" name ="search-category" value="{{c}}"/>
-                <label class="form-check"> {{c}} </label>
+            <input class="filter" type="submit" id="{{c}}" name ="search-category" value="{{c}}"/>
             {%endfor%}
 
             {% for d in difficulties %}
-            <input class="form-check-input" type="checkbox" name ="search-difficulty" value="{{d}}"/>
-            <label class="form-check"> {{d}} </label>
+            <input class="filter" type="submit" id="{{d}}" name ="search-difficulty" value="{{d}}"/>
             {%endfor%}
+            
+            <ol class="filters">
+            <label for="All">All</label>
+            {%for c in categories%}
+            <li>
+                <label for="{{c}}">{{c}}</label>
+            </li>
+            {%endfor%}
+            {%for d in difficulties%}
+            <li>
+                <label for="{{d}}">{{d}}</label>
+            </li>
+            {%endfor%}
+            </ol>
+
+            <div id="search-bar">
+                <input type="text" name="search-by" placeholder="Search for an event">
+                <input type="submit" class="button colored-btn select-btn" value="Search">
             </div>
-            <input type="submit" class="button colored-btn select-btn" value="Search">
+
+            
     </form>
     </div>
 
@@ -48,7 +67,7 @@
     <div class="flex-container">
         {%for r in results%}
         <a style="text-decoration: none;" href="{{ url_for('programme_detail', programme_id=r._id)}}">
-        <div class="card mb-3">
+        <div class="card mb-5">
             <img class="card-img-top" src="{{r.image_url}}"  alt=""onerror="this.src='https://wmimg.azureedge.net/public/img/articles/why-are-east-african-runners-so-dominant-/why-are-east-african-runners-so-dominant-.jpg'">
             <div class="card-body">
               <h5 class="card-title">{{r.title}}</h5>

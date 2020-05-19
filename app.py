@@ -28,8 +28,8 @@ app.config["UPLOADED_IMAGES_URL"] = upload_dir
 images_upload_set = UploadSet('images', IMAGES)
 configure_uploads(app, images_upload_set)
 
-categories = ["Marathon","Half Marathon","Sprinting", "Short Distance", "Weight-Loss", "Everyone"]
-difficulty = ["Easy","Intermediate", "Advanced", "Professional", "Open"]
+categories = ["Marathon","Half Marathon","Sprint", "Short Distance", "Weight Loss", "Everyone"]
+difficulty = ["Easy","Intermediate", "Advanced", "Professional"]
 
 @app.route('/')
 def home():

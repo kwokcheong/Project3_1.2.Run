@@ -183,7 +183,7 @@ section{
 }
 
 .flex-container {
-    padding: 45px;
+    padding: 65px;
     margin: 0;
     align-items: center;
     justify-content: center;
@@ -246,3 +246,46 @@ section .content h2{
 #running h2{
   background-image: url("https://image.cnbcfm.com/api/v1/image/104561687-London_Marathon.jpg?v=1578673377&w=1400&h=950") ;
 }
+
+
+.search-bar{
+  justify-content: center;
+  justify-content: inline-block;
+}
+
+ol {
+  list-style: none;
+}
+
+input[class="filter"] {
+  position: absolute;
+  left: -9999px;
+}
+
+/* FILTERS */
+.filters {
+  text-align: center;
+  margin-bottom: 2rem;
+  margin: 0px;
+  padding: 0px;
+}
+
+.filters * {
+  display: inline-block;
+}
+
+.filters label {
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.25rem;
+  border-radius: 2rem;
+  min-width: 50px;
+  line-height: normal;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.filters label:hover {
+  background: var(--green);
+  color: var(--white);
+}
+
