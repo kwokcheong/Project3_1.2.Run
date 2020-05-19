@@ -4,51 +4,54 @@
 <form id="form" method='POST' onsubmit="return validateForm()" style="padding: 50px">
   <div class="form-group">
     <label>Image: </label>
-    <input type="url" name="image" class="form-control" placeholder="Paste image URL" pattern="https://.*"/>      
-  </div>
-  
-  <div class="form-group">
-    <label for="inputName" class="control-label col-xs-1">Event Name: </label>
-    <input type="text" class="form-control" placeholder="Enter Event Name" name="programme_title" value="{{programme['title']}}"/>
+    <input type="url" name="image" class="form-control" placeholder="Paste image URL" pattern="https://.*" />
   </div>
 
-  
   <div class="form-group">
-        <label>Duration of event: </label>
-        <input type="text" class="form-control" placeholder="Enter Duration" name="programme_duration" value="{{programme['duration']}}"/>
-      </div>
-      <div class="form-group">
-        <label>Date of event: </label>
-        <input type="date" id="theDate" class="form-control input-sm" name="programme_date"/>
-      </div>
-        <label>Time of event: </label>
-        <input type="time" class="form-control" name="programme_time"/>
-        <br/>
-        <label>Location of event: </label>
-        <input type="text" class="form-control" name="programme_location" value="{{programme['location']}}"/>
-        <br/>
-        <label>Difficulty: </label>
-        <select id="Difficulty" class="form-control" name="programme_difficulty" value="{{programme['difficulty']}}">
-            <option value="Easy">Easy</option>
-            <option value="Intermediate">Intermediate</option>
-            <option value="Advanced">Advanced</option>
-            <option value="Professional">Professional</option>
-          </select>
-        <br/>
-        <label>Category: </label>
-        <select id="category" class="form-check input" multiple name="programme_category" value="{{programme['category']}}">
-          <option value="Marathon">Marathon</option>
-          <option value="Sprint">Sprint</option>
-          <option value="Half Marathon">Half Marathon</option>
-          <option value="Weight Loss">Weight Loss</option>
-          <option value="Everyone">Everyone</option>
-        </select>
-      <br/>
-      <div class="form-group">
-        <label class="control-label" for="Description">Description: </label>
-        <textarea type="text" class="form-control input-lg" rows="11" name="programme_description" >{{programme['description']}}</textarea>
-      </div>
+    <label class="control-label col-xs-1">Event Name: </label>
+    <input type="text" class="form-control" placeholder="Enter Event Name" name="programme_title"
+      value="{{programme['title']}}" />
+  </div>
 
-        <input type="submit"/>
-    </form>
+
+  <div class="form-group">
+    <label>Duration of event: </label>
+    <input type="text" class="form-control" placeholder="Enter Duration" name="programme_duration"
+      value="{{programme['duration']}}" />
+  </div>
+  <div class="form-group">
+    <label>Date of event: </label>
+    <input type="date" id="theDate" class="form-control input-sm" name="programme_date" />
+  </div>
+  <label>Time of event: </label>
+  <input type="time" class="form-control" name="programme_time" />
+  <br />
+  <label>Location of event: </label>
+  <input type="text" class="form-control" name="programme_location" value="{{programme['location']}}" />
+  <br />
+  <label>Difficulty: </label>
+  <select id="Difficulty" class="form-control" name="programme_difficulty">
+    <option value="Easy">Easy</option>
+    <option value="Intermediate">Intermediate</option>
+    <option value="Advanced">Advanced</option>
+    <option value="Professional">Professional</option>
+  </select>
+  <br />
+  <label>Category: </label>
+  <select id="category" class="form-check input" multiple name="programme_category">
+    <option value="Marathon">Marathon</option>
+    <option value="Sprint">Sprint</option>
+    <option value="Half Marathon">Half Marathon</option>
+    <option value="Weight Loss">Weight Loss</option>
+    <option value="Everyone">Everyone</option>
+  </select>
+  <br />
+  <div class="form-group">
+    <label class="control-label">Description: </label>
+    <textarea class="form-control input-lg" rows="11"
+      name="programme_description">{{programme['description']}}</textarea>
+  </div>
+
+  <input type="submit" />
+</form>
 {%endblock%}

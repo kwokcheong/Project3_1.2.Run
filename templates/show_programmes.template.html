@@ -15,7 +15,7 @@
             <input type="submit" class="button colored-btn select-btn" value="Search">
         </div>
         <div>
-            <input class="filter" type="submit" id="All" name="categories" value="All" checked>
+            <input class="filter" type="submit" id="All" name="categories" value="All">
             {% for c in categories %}
             <input class="filter" type="submit" id="{{c}}" name="search-category" value="{{c}}" />
             {%endfor%}
@@ -35,12 +35,14 @@
                 </li>
                 {%endfor%}
             </ol>
+        </div>
     </form>
 </div>
 
 <div class="row">
-    <button type="button" class="btn btn-success"><a style=" text-decoration: none;"
-            href="{{ url_for('create_programmes')}}"><p style="color:white; margin:0;">Create New Event</p></a></button>
+    <button type="button" class="btn btn-success">
+        <a style=" text-decoration: none; color:white; margin:0;" href="{{ url_for('create_programmes')}}">Create New Event</a>
+    </button>
 </div>
 
 
@@ -76,5 +78,5 @@
             <a class="page-link" href="?current_page={{max_pages}}" aria-label="Last">Last Page</a>
         </li>
     </ul>
-    </div>
+</div>
 {%endblock%}
