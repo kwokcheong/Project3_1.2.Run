@@ -159,7 +159,18 @@ body {
       display: none;
     }
   }
- 
+
+  #about{ 
+    height: 400px;
+  }
+
+  #homepage_img{ 
+    height: 450px;
+    width: 100%;
+    object-fit: cover;
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(images/171014-ff-ashvlle-2318--1920.jpg);
+  }
+
 
 .container{
     width: 100%;
@@ -199,13 +210,30 @@ section{
 
 .card-img-top {
   width: 100%;
-  height: 15vw;
+  height: 20vw;
   object-fit: cover;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
 
+
+.card-img{
+  width: 100%;
+  height: 20vw;
+  object-fit: cover;
+}
+
+
+/* This swaps the position for create an event for mobile responsive */
+#swap{
+  display: flex;
+  flex-direction:row;
+}
+
+@media screen and (max-width:992px){
+	#swap{flex-direction:column-reverse;}
+}
 
 /*events */
 #banner {
@@ -244,7 +272,7 @@ section .content h2{
 
 
 #running h2{
-  background-image: url("https://image.cnbcfm.com/api/v1/image/104561687-London_Marathon.jpg?v=1578673377&w=1400&h=950") ;
+  background-image: url("https://blog.mapmyrun.com/wp-content/uploads/2017/09/5-Reasons-Track-Running-Is-the-Best.jpg") ;
 }
 
 

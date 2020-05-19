@@ -31,8 +31,20 @@ configure_uploads(app, images_upload_set)
 categories = ["Marathon","Half Marathon","Sprint", "Short Distance", "Weight Loss", "Everyone"]
 difficulty = ["Easy","Intermediate", "Advanced", "Professional"]
 
-@app.route('/')
+@app.route('/', methods=["GET"])
 def home():
+    search_title = request.args.get('search-by')
+    search_criteria = {}
+    projection={'title',"duration","difficulty","category", "image_url", "date_of_post", "author"}
+    show_per_page = 4
+    max_pages = math.ceil(client[DB_NAME].programmes.count() / show_per_page)
+
+    current_page = int(request.args.get('current_page',1))
+    if request.method == "GET": 
+        if search_title: 
+            search_criteria["title"] = re.compile(r'{}'.format(search_title), re.I)
+            cursor = client[DB_NAME].programmes.find(search_criteria, projection).skip((show_per_page)*(current_page-1)).limit(show_per_page)
+            return render_template('show_programmes.template.html', results = cursor, categories = categories, difficulties = difficulty, max_pages = max_pages)
     return render_template("index.template.html")
 
 @app.route('/show_programmes', methods=["GET"])
@@ -49,8 +61,6 @@ def show_programmes():
     current_page = int(request.args.get('current_page',1))
 
     #only show first ten
-    
-
     
     if request.method =="GET":
         cursor = client[DB_NAME].programmes.find().sort('date', pymongo.DESCENDING).skip((show_per_page)*(current_page-1)).limit(show_per_page)

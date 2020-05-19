@@ -1,84 +1,80 @@
 {%extends 'layout.template.html'%}
 
-    {%block content%}
-    <div id="banner">
-        <div class="content" id="running" style="padding:40px;"> 
-            <h2> Events </h2>
-            <h4>You will never be alone.</h4>
-            <h4>Join various groups and be part of the community!</h4>
-        </div>
+{%block content%}
+<div id="banner">
+    <div class="content" id="running" style="padding:40px;">
+        <h2> Events </h2>
+        <h4>You will never be alone.</h4>
+        <h4>Join various groups and be part of the community!</h4>
     </div>
-
-    <div>
-        
-        <form class="form-group" method="GET">
-  
-            <div>
+</div>
+<div>
+    <form class="form-group" method="GET">
+        <div class="row" style="margin-bottom: 30px;">
+            <input type="text" name="search-by" placeholder="Search for an event">
+            <input type="submit" class="button colored-btn select-btn" value="Search">
+        </div>
+        <div>
             <input class="filter" type="submit" id="All" name="categories" value="All" checked>
             {% for c in categories %}
-            <input class="filter" type="submit" id="{{c}}" name ="search-category" value="{{c}}"/>
+            <input class="filter" type="submit" id="{{c}}" name="search-category" value="{{c}}" />
             {%endfor%}
-
             {% for d in difficulties %}
-            <input class="filter" type="submit" id="{{d}}" name ="search-difficulty" value="{{d}}"/>
+            <input class="filter" type="submit" id="{{d}}" name="search-difficulty" value="{{d}}" />
             {%endfor%}
-            
             <ol class="filters">
-            <label for="All">All</label>
-            {%for c in categories%}
-            <li>
-                <label for="{{c}}">{{c}}</label>
-            </li>
-            {%endfor%}
-            {%for d in difficulties%}
-            <li>
-                <label for="{{d}}">{{d}}</label>
-            </li>
-            {%endfor%}
+                <label for="All">All</label>
+                {%for c in categories%}
+                <li>
+                    <label for="{{c}}">{{c}}</label>
+                </li>
+                {%endfor%}
+                {%for d in difficulties%}
+                <li>
+                    <label for="{{d}}">{{d}}</label>
+                </li>
+                {%endfor%}
             </ol>
-
-            <div id="search-bar">
-                <input type="text" name="search-by" placeholder="Search for an event">
-                <input type="submit" class="button colored-btn select-btn" value="Search">
-            </div>
-
-            
     </form>
-    </div>
+</div>
+
+<div class="row">
+    <button type="button" class="btn btn-success"><a style=" text-decoration: none;"
+            href="{{ url_for('create_programmes')}}"><p style="color:white; margin:0;">Create New Event</p></a></button>
+</div>
 
 
-    
-    <div class="row">
-    <button type="button" class="btn btn-success"><a style=" text-decoration: none;" href="{{ url_for('create_programmes')}}">Create New Event</a></button>
-    </div>
-    
+<div class="flex-container">
+    {%for r in results%}
+    <a style="text-decoration: none;" href="{{ url_for('programme_detail', programme_id=r._id)}}">
+        <div class="card mb-5">
+            <img class="card-img-top" src="{{r.image_url}}" alt=""
+                onerror="this.src='https://wmimg.azureedge.net/public/img/articles/why-are-east-african-runners-so-dominant-/why-are-east-african-runners-so-dominant-.jpg'">
+            <div class="card-body">
+                <h5 class="card-title">{{r.title}}</h5>
+                <p class="card-text">{{r.difficulty}}</p>
+                <p class="card-text">{{r.category}}</p>
+                <p class="card-text"><small class="text-muted">Created on {{r.date_of_post.strftime('%Y-%m-%d')}} by
+                        {{r.author}}</small></p>
+            </div>
+        </div>
+    </a>
+    {%else%}
+    <div style="text-align: center;">No results found</div>
+    {%endfor%}
+</div>
+
+
+<div class="row">
     <ul class="pagination">
         <li class="page-item">
             <a class="page-link" href="?current_page=1" aria-label="First">First Page</a>
             {%for p in range(1,max_pages+1)%}
-            <li class="page-item"><a class="page-link" href="?current_page={{p}}">{{p}}</a></li>
-            {%endfor%}
+        <li class="page-item"><a class="page-link" href="?current_page={{p}}">{{p}}</a></li>
+        {%endfor%}
         <li class="page-item">
             <a class="page-link" href="?current_page={{max_pages}}" aria-label="Last">Last Page</a>
         </li>
     </ul>
-
-
-    <div class="flex-container">
-        {%for r in results%}
-        <a style="text-decoration: none;" href="{{ url_for('programme_detail', programme_id=r._id)}}">
-        <div class="card mb-5">
-            <img class="card-img-top" src="{{r.image_url}}"  alt=""onerror="this.src='https://wmimg.azureedge.net/public/img/articles/why-are-east-african-runners-so-dominant-/why-are-east-african-runners-so-dominant-.jpg'">
-            <div class="card-body">
-              <h5 class="card-title">{{r.title}}</h5>
-              <p class="card-text">{{r.difficulty}}</p>
-              <p class="card-text">{{r.category}}</p>
-              <p class="card-text"><small class="text-muted">Created on {{r.date_of_post.strftime('%Y-%m-%d')}} by {{r.author}}</small></p>
-            </div>
-          </div>
-        </a>
-        {%else%}
-        <div style="text-align: center;">No results found</div>
-        {%endfor%}
     </div>
 {%endblock%}
