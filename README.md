@@ -1,5 +1,6 @@
 
 <img src="static\images\Annotation 2020-05-20 231446.png"/>
+
 # 12Run - A community-driven running event web application
 
 This web application serves as a database index of community local running events contributed and hosted by users of the public themselves.
@@ -29,6 +30,11 @@ My goal is to allow users to easily search for events/sessions by entering keywo
 - Users can also filter their search by clicking on key categories or level of difficulty.
 
 I opted to choosing pictures which showcases people training together of all different levels of fitness, to eliminate the underlying concern that one has to be extremely fit to be part of the running community. I segregated the information into seperate cards, giving each a generous amount of space between one another for ease of reading. To prevent overloading of information in database, i used pagination to split excess data into seperate pages to keep the page neat and tidy.
+
+# wireframe mockup
+<img src="static\images\IMG_0369.jpg"/>
+<img src="static\images\IMG_0370.jpg"/>
+
 
 ## Technologies
 1.	HTML
