@@ -1,6 +1,5 @@
 
 <img src="static\images\Annotation 2020-05-20 231446.png"/>
-<img src="static\images\Annotation 2020-05-20 231601.png"/>
 # 12Run - A community-driven running event web application
 
 This web application serves as a database index of community local running events contributed and hosted by users of the public themselves.
@@ -48,6 +47,7 @@ I opted to choosing pictures which showcases people training together of all dif
 
 ## Features
 The web application achieves these four basic functions of a database, namely CRUD –  an acronym for the four basic types of SQL commands: Create , Read , Update , Delete.
+<img src="static\images\Annotation 2020-05-20 231601.png"/>
 
 These functions allows users to perform the following features:
 #### 1.	Create
