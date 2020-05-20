@@ -96,7 +96,7 @@ Selecting the category is optional if host is not sure. Image is also optional a
 
 **•	Create a comment on each individual event**
 
-The comment form is successful in fetching input data to the database with both the commenter’s name and comment. Every single comment entry made on each individual artwork is added to the database as an object in an array called ‘reviews’, under the specific object ID given for each event. Once the user has submitted the comment, the comments will show up after the page has automatically refreshed.
+The comment form is successful in fetching input data to the database with both the commenter’s name and comment. Every single comment entry made on each individual event is added to the database as an object in an array called ‘reviews’, under the specific object ID given for each event. Once the user has submitted the comment, the comments will show up after the page has automatically refreshed.
 
 #### 2. Read:
 **•	Searchbox for event titles**
@@ -112,7 +112,7 @@ In addition to the search function, the user has the ability to narrow down thei
 #### 3. Update:
 **•	Edit the details of the existing event**
 
-The default details of the existing events from the database will reflect in the input form. This is to ensure that the user is aware of the changes they are making to the artwork archive. Once the form is submitted, the data of the event archive will be updated to the database.
+The default details of the existing events from the database will reflect in the input form. This is to ensure that the user is aware of the changes they are making to the event archive. Once the form is submitted, the data of the event archive will be updated to the database.
 
 ## Mobile Responsiveness and testing
 To ensure compatibility and responsiveness, the site was tested across multiple browsers such as Chrome, Safari and Internet Explorer and on iOS devices - iPhone Xs Max, iPad and iPad Pro.
