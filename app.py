@@ -44,7 +44,7 @@ def home():
         if search_title: 
             search_criteria["title"] = re.compile(r'{}'.format(search_title), re.I)
             cursor = client[DB_NAME].programmes.find(search_criteria, projection).skip((show_per_page)*(current_page-1)).limit(show_per_page)
-            return render_template('show_programmes.template.html', results = cursor, categories = categories, difficulties = difficulty, max_pages = max_pages)
+            return redirect(url_for('.show_programmes', results = cursor, categories = categories, difficulties = difficulty, max_pages = max_pages))
     return render_template("index.template.html")
 
 @app.route('/show_programmes', methods=["GET"])

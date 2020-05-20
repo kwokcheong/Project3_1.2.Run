@@ -5,12 +5,13 @@
   <img class="card-img-top" src="{{programme.image_url}}" alt=""
     onerror="this.src='https://wmimg.azureedge.net/public/img/articles/why-are-east-african-runners-so-dominant-/why-are-east-african-runners-so-dominant-.jpg'">
   <div class="card-body">
-    <h2 class="card-title">{{programme.title}}</h2>
-    <p class="card-text">Level: {{programme.difficulty}}</p>
-    <p class="card-text">Category: {{programme.category}}</p>
-    <p class="card-text">Date: {{programme.date.strftime('%Y-%m-%d')}}</p>
-    <p class="card-text">Time: {{programme.time.strftime('%H:%M')}}</p>
-    <p class="card-text">Description: {{programme.description}}</p>
+    <h2 class="card-title" style="font-family:'Roboto', sans-serif;">{{programme.title}}</h2>
+    <span class="badge badge-info">Location</span><p class="card-text"> {{programme.location}}</p>
+    <span class="badge badge-info">Difficulty</span><p class="card-text"> {{programme.difficulty}}</p>
+    <span class="badge badge-info">Category</span><p class="card-text"> {{programme.category}}</p>
+    <span class="badge badge-info">Date</span><p class="card-text"> {{programme.date.strftime('%Y-%m-%d')}}</p>
+    <span class="badge badge-info">Time</span><p class="card-text"> {{programme.time.strftime('%H:%M')}}</p>
+    <span class="badge badge-secondary">Description</span> <p class="card-text" style="white-space: pre-wrap;">{{programme.description}}</p>
     <p class="card-text"><small class="text-muted">Created on {{programme.date_of_post.strftime('%Y-%m-%d')}} by
       {{programme.author}}</small></p>
 
@@ -24,8 +25,8 @@
 
 
 <div class="panel-heading">
-  <h3 class="panel-title">
-      Recent Comments</h3>
+  <h4 class="panel-title">
+      Recent Comments</h4>
 </div>
 <div class="panel-body">
   <ul class="list-group">
@@ -53,7 +54,7 @@
 </div>
 
 <div class="card mb-3">
-<h3 style="text-align: center;"> Submit Review</h3>
+<h3 style="text-align: center;"> Submit Your Comment</h3>
 <form id="form" method="POST" style="padding: 50px">
   <div class="form-group">
     <label> Name: </label>
