@@ -160,9 +160,7 @@ body {
     }
   }
 
-  #about{ 
-    height: 400px;
-  }
+  /* Hero image */
 
   #homepage_img{ 
     height: 450px;
@@ -192,6 +190,8 @@ section{
     display: inline-block;
     justify-content: center;
 }
+
+/*Tiles*/
 
 .flex-container {
     padding: 65px;
@@ -293,6 +293,7 @@ section .content h2{
   }
 }
 
+/* background image for events wording */
 
 #running h2{
   background-image: url("https://blog.mapmyrun.com/wp-content/uploads/2017/09/5-Reasons-Track-Running-Is-the-Best.jpg") ;

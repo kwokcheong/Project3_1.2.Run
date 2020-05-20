@@ -13,6 +13,7 @@ load_dotenv()
 
 MONGO_URI = os.environ.get('MONGO_URI')
 
+#set up mongo client
 client = pymongo.MongoClient(MONGO_URI)
 
 DB_NAME = "onetworun"
@@ -28,6 +29,8 @@ app.config["UPLOADED_IMAGES_URL"] = upload_dir
 images_upload_set = UploadSet('images', IMAGES)
 configure_uploads(app, images_upload_set)
 
+
+#Initializing array fixed data
 categories = ["Marathon", "Half-Marathon", "Sprint",
               "Short-Distance", "Weight-Loss", "Everyone"]
 difficulty = ["Easy", "Intermediate", "Advanced", "Professional"]
@@ -60,13 +63,12 @@ def show_programmes():
     search_difficulty = request.args.getlist('search-difficulty')
     search_criteria = {}
 
-    # pagination for show programmes
+    # pagination for show programmes, only show 4 per page
     show_per_page = 4
     max_pages = math.ceil(client[DB_NAME].programmes.count() / show_per_page)
 
     current_page = int(request.args.get('current_page', 1))
 
-    # only show first ten
 
     if request.method == "GET":
         cursor = client[DB_NAME].programmes.find().sort('date', pymongo.DESCENDING).skip(
