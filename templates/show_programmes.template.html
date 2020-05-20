@@ -22,7 +22,7 @@
             <input class="filter" type="submit" id="{{d}}" name="search-difficulty" value="{{d}}" />
             {%endfor%}
             <ol class="filters">
-                <label for="All">All</label>
+                <li><label for="All">All</label></li>
                 {%for c in categories%}
                 <li>
                     <label for="{{c}}">{{c}}</label>
@@ -39,11 +39,9 @@
 </div>
 
 <div class="row">
-    <a style=" text-decoration: none; color:white; margin:0;" href="{{ url_for('create_programmes')}}">
-        <button type="button" class="btn btn-success">
-            Create New Event
-        </button>
-    </a>
+    <button type="button" class="btn btn-success">
+    <a style=" text-decoration: none; color:white; margin:0;" href="{{ url_for('create_programmes')}}">Create New Event</a>
+    </button>
 </div>
 
 
