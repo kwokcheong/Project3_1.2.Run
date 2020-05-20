@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width" />
@@ -13,8 +14,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/styles.css">
   <script src="{{url_for('static', filename='scripts/script.js')}}"></script>
-  <title>12RUN</title>
+  <title>{%block title%}{%endblock%}</title>
 </head>
+
 <body>
   <nav>
     <header class="header">
@@ -28,7 +30,7 @@
       </ul>
     </header>
   </nav>
-  
+
   <section id="content">
     <h1 style="display: none;">Main content</h1>
     {%block content%}{%endblock%}
@@ -55,4 +57,5 @@
     integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous">
     </script>
 </body>
+
 </html>

@@ -1,4 +1,5 @@
 {%extends 'layout.template.html'%}
+{%block title%}Events{%endblock%}
 {%block content%}
 <div id="banner">
     <div class="content" id="running" style="padding:40px;">
@@ -11,8 +12,10 @@
     <form class="form-group" method="GET">
         <div class="row" style="margin-bottom: 30px;">
             <input type="text" style="width: 310px;" name="search-by" placeholder="Search for an event">
-            <input type="submit" class="button colored-btn select-btn" value="Search" style="margin-left: 10px; margin-top:8px;">
-            <a style=" text-decoration: none; margin-left:10px; margin-top:8px;" href="{{ url_for('create_programmes')}}">
+            <input type="submit" class="button colored-btn select-btn" value="Search"
+                style="margin-left: 10px; margin-top:8px;">
+            <a style=" text-decoration: none; margin-left:10px; margin-top:8px;"
+                href="{{ url_for('create_programmes')}}">
                 <i id="create_button" class="fa fa-plus-square fa-3x" aria-hidden="true"></i>
             </a>
         </div>
@@ -71,10 +74,11 @@
         <li class="page-item">
             <a class="page-link" href="?current_page=1" aria-label="First" style="color: black;">First Page</a>
             {%for p in range(1,max_pages+1)%}
-            <li class="page-item"><a class="page-link" href="?current_page={{p}}" style="color: black;">{{p}}</a></li>
-            {%endfor%}
+        <li class="page-item"><a class="page-link" href="?current_page={{p}}" style="color: black;">{{p}}</a></li>
+        {%endfor%}
         <li class="page-item">
-            <a class="page-link" href="?current_page={{max_pages}}" aria-label="Last" style="color: black;">Last Page</a>
+            <a class="page-link" href="?current_page={{max_pages}}" aria-label="Last" style="color: black;">Last
+                Page</a>
         </li>
     </ul>
 </div>

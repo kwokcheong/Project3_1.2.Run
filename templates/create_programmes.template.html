@@ -1,62 +1,64 @@
 {%extends 'layout.template.html'%}
-
+{%block title%}Create{%endblock%}
 {%block content%}
 
 <form id="form" method='POST' onsubmit="return validateForm()" style="padding: 50px">
   <div class="form-group">
     <label>Image: </label>
-    <input type="url" name="image" class="form-control" placeholder="Paste image URL" pattern="https://.*"/>      
+    <input type="url" name="image" class="form-control" placeholder="Paste image URL" pattern="https://.*" />
   </div>
-  
+
   <div class="form-group">
     <label class="control-label col-xs-1">Event Name: </label>
-    <input type="text" class="form-control" placeholder="Enter Event Name" name="programme_title"/>
+    <input type="text" class="form-control" placeholder="Enter Event Name" name="programme_title" />
   </div>
   <div class="form-group">
     <label class="control-label col-xs-1">Your Name: </label>
-    <input type="text" class="form-control" placeholder="Enter your Name" name="programme_author"/>
+    <input type="text" class="form-control" placeholder="Enter your Name" name="programme_author" />
   </div>
 
-  
-  <div class="form-group">
-        <label>Duration of event: </label>
-        <input type="text" class="form-control" placeholder="Enter Duration" name="programme_duration"/>
-      </div>
-      <div class="form-group">
-        <label>Date of event: </label>
-        <input type="date" class="form-control input-sm" name="programme_date"/>
-      </div>
-        <label>Time of event: </label>
-        <input type="time" class="form-control" name="programme_time"/>
-        <br/>
-        <label>Location of event: </label>
-        <input type="text" class="form-control" name="programme_location" placeholder="Where will it be at?"/>
-        <br/>
-        <label>Difficulty: </label>
-        <select id="Difficulty" class="form-control" name="programme_difficulty">
-            <option value="Easy">Easy</option>
-            <option value="Intermediate">Intermediate</option>
-            <option value="Advanced">Advanced</option>
-            <option value="Professional">Professional</option>
-          </select>
-        <br/>
-        <label>Category: </label>
-        <select id="category" class="form-check input" multiple name="programme_category">
-          <option value="Marathon">Marathon</option>
-          <option value="Sprint">Sprint</option>
-          <option value="Half Marathon">Half Marathon</option>
-          <option value="Weight Loss">Weight Loss</option>
-          <option value="Everyone">Everyone</option>
-        </select>
-      <br/>
-      <div class="form-group">
-        <label class="control-label">Description: </label>
-        <textarea class="form-control input-lg" rows="11" name="programme_description" placeholder="Remember to let people know how to reach out you!"></textarea>  
-      </div>
 
-        <input type="submit"/>
-    </form>
+  <div class="form-group">
+    <label>Duration of event: </label>
+    <input type="text" class="form-control" placeholder="Enter Duration" name="programme_duration" />
+  </div>
+  <div class="form-group">
+    <label>Date of event: </label>
+    <input type="date" class="form-control input-sm" name="programme_date" />
+  </div>
+  <label>Time of event: </label>
+  <input type="time" class="form-control" name="programme_time" />
+  <br />
+  <label>Location of event: </label>
+  <input type="text" class="form-control" name="programme_location" placeholder="Where will it be at?" />
+  <br />
+  <label>Difficulty: </label>
+  <select id="Difficulty" class="form-control" name="programme_difficulty">
+    <option value="Easy">Easy</option>
+    <option value="Intermediate">Intermediate</option>
+    <option value="Advanced">Advanced</option>
+    <option value="Professional">Professional</option>
+  </select>
+  <br />
+  <label>Category: </label>
+  <select id="category" class="form-check input" multiple name="programme_category">
+    <option value="Marathon">Marathon</option>
+    <option value="Sprint">Sprint</option>
+    <option value="Half Marathon">Half Marathon</option>
+    <option value="Weight Loss">Weight Loss</option>
+    <option value="Everyone">Everyone</option>
+  </select>
+  <br />
+  <div class="form-group">
+    <label class="control-label">Description: </label>
+    <textarea class="form-control input-lg" rows="11" name="programme_description"
+      placeholder="Remember to let people know how to reach out you!"></textarea>
+  </div>
+
+  <input type="submit" />
+</form>
 {%endblock%}
-    
+
 </body>
+
 </html>

@@ -1,5 +1,5 @@
 {%extends 'layout.template.html'%}
-
+{%block title%}12RUN{%endblock%}
 {%block content%}
 
 
@@ -25,7 +25,8 @@
 
 <section>
   <div class="col" style="margin-top: 100px; margin-bottom: 100px;">
-    <h2 style="font-family: 'Montserrat', sans-serif; color:rgb(102, 243, 149); text-align: center;"> 10 Thousand runners
+    <h2 style="font-family: 'Montserrat', sans-serif; color:rgb(102, 243, 149); text-align: center;"> 10 Thousand
+      runners
       strong</h2>
     <h2 style="font-family: 'Work Sans', sans-serif; color:rgb(43, 43, 43); text-align: center;"> Welcome to the
       community!</h2>
@@ -42,12 +43,13 @@
       </div>
       <div class="col-md-8">
         <div class="card-body" style="margin-top: 50px; font-family: 'Work Sans', sans-serif;">
-          <h3 class="card-title" >Join a nearby group</h3>
-          <p class="card-text" >Open to all levels of running. Whether you're a beginner, professional or just looking to
+          <h3 class="card-title">Join a nearby group</h3>
+          <p class="card-text">Open to all levels of running. Whether you're a beginner, professional or just looking to
             lose some weight, there is always a group for you.</p>
-            <div class="row">
-              <a style="text-decoration: none; color: #ffffff" class="button" href="{{ url_for('show_programmes')}}">Join Now</a>
-            </div>
+          <div class="row">
+            <a style="text-decoration: none; color: #ffffff" class="button" href="{{ url_for('show_programmes')}}">Join
+              Now</a>
+          </div>
         </div>
       </div>
     </div>
@@ -59,8 +61,9 @@
           <h3 class="card-title">Create an event or session</h3>
           <p class="card-text">12Run is powered by it's own community. Create new events for others to join and make new
             friends.</p>
-            <div class="row">
-            <a style="text-decoration: none; color: #ffffff" class="button" href="{{ url_for('create_programmes')}}">Create Now</a>
+          <div class="row">
+            <a style="text-decoration: none; color: #ffffff" class="button"
+              href="{{ url_for('create_programmes')}}">Create Now</a>
           </div>
         </div>
       </div>

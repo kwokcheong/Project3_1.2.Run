@@ -1,4 +1,5 @@
 {%extends 'layout.template.html'%}
+{%block title%}Events{%endblock%}
 {% block content %}
 
 <div class="card mb-3">
@@ -6,14 +7,20 @@
     onerror="this.src='https://wmimg.azureedge.net/public/img/articles/why-are-east-african-runners-so-dominant-/why-are-east-african-runners-so-dominant-.jpg'">
   <div class="card-body">
     <h2 class="card-title" style="font-family:'Roboto', sans-serif;">{{programme.title}}</h2>
-    <span class="badge badge-info">Location</span><p class="card-text"> {{programme.location}}</p>
-    <span class="badge badge-info">Difficulty</span><p class="card-text"> {{programme.difficulty}}</p>
-    <span class="badge badge-info">Category</span><p class="card-text"> {{programme.category}}</p>
-    <span class="badge badge-info">Date</span><p class="card-text"> {{programme.date.strftime('%Y-%m-%d')}}</p>
-    <span class="badge badge-info">Time</span><p class="card-text"> {{programme.time.strftime('%H:%M')}}</p>
-    <span class="badge badge-secondary">Description</span> <p class="card-text" style="white-space: pre-wrap;">{{programme.description}}</p>
+    <span class="badge badge-info">Location</span>
+    <p class="card-text"> {{programme.location}}</p>
+    <span class="badge badge-info">Difficulty</span>
+    <p class="card-text"> {{programme.difficulty}}</p>
+    <span class="badge badge-info">Category</span>
+    <p class="card-text"> {{programme.category}}</p>
+    <span class="badge badge-info">Date</span>
+    <p class="card-text"> {{programme.date.strftime('%Y-%m-%d')}}</p>
+    <span class="badge badge-info">Time</span>
+    <p class="card-text"> {{programme.time.strftime('%H:%M')}}</p>
+    <span class="badge badge-secondary">Description</span>
+    <p class="card-text" style="white-space: pre-wrap;">{{programme.description}}</p>
     <p class="card-text"><small class="text-muted">Created on {{programme.date_of_post.strftime('%Y-%m-%d')}} by
-      {{programme.author}}</small></p>
+        {{programme.author}}</small></p>
 
     <a href="{{ url_for('delete_programme', programme_id=programme._id)}}"><i class="fa fa-trash-o"> </i></a>
     <a href="{{ url_for('edit_programme', programme_id=programme._id)}}"><i class="fa fa-pencil-square-o"></i></a>
@@ -23,46 +30,49 @@
 
 <div class="panel-heading">
   <h4 class="panel-title">
-      Recent Comments</h4>
+    Recent Comments</h4>
 </div>
 <div class="panel-body">
   <ul class="list-group">
     {%for p in programme.reviews%}
-      <li class="list-group-item">
-          <div class="row">
-              <div class="col-xs-2 col-md-1">
-                  <img style="border-radius: 50%; height: 80px; width: 80px;" src="https://i.ya-webdesign.com/images/blank-profile-picture-png-6.png" class="img-circle img-responsive" alt="" />
-                </div>
-              <div class="col-xs-10 col-md-11">
-                  <div>
-                      <div class="mic-info">
-                          By: {{p.name}}
-                          <p class="card-text"><small class="text-muted">Posted on {{p.date_review.strftime('%Y-%m-%d')}}</small></p>
-                      </div>
-                  </div>
-                  <div class="comment-text">
-                    {{p.review}}
-                  </div>
-              </div>
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-xs-2 col-md-1">
+          <img style="border-radius: 50%; height: 80px; width: 80px;"
+            src="https://i.ya-webdesign.com/images/blank-profile-picture-png-6.png" class="img-circle img-responsive"
+            alt="" />
+        </div>
+        <div class="col-xs-10 col-md-11">
+          <div>
+            <div class="mic-info">
+              By: {{p.name}}
+              <p class="card-text"><small class="text-muted">Posted on {{p.date_review.strftime('%Y-%m-%d')}}</small>
+              </p>
+            </div>
           </div>
-      </li>
-      {%endfor%}
-      </ul>
+          <div class="comment-text">
+            {{p.review}}
+          </div>
+        </div>
+      </div>
+    </li>
+    {%endfor%}
+  </ul>
 </div>
 
 <div class="card mb-3">
-<h3 style="text-align: center;"> Submit Your Comment</h3>
-<form id="form" method="POST" style="padding: 50px">
-  <div class="form-group">
-    <label> Name: </label>
-    <input type="text" class="form-control" placeholder="Enter Name" name="reviewer_name" />
-  </div>
+  <h3 style="text-align: center;"> Submit Your Comment</h3>
+  <form id="form" method="POST" style="padding: 50px">
+    <div class="form-group">
+      <label> Name: </label>
+      <input type="text" class="form-control" placeholder="Enter Name" name="reviewer_name" />
+    </div>
 
-  <div class="form-group">
-    <label> Comment: </label>
-    <textarea rows="6" class="form-control" placeholder="Enter comment" name="review"></textarea>
-  </div>
-  <input type="submit" value="Submit Review" />
-</form>
+    <div class="form-group">
+      <label> Comment: </label>
+      <textarea rows="6" class="form-control" placeholder="Enter comment" name="review"></textarea>
+    </div>
+    <input type="submit" value="Submit Review" />
+  </form>
 </div>
 {%endblock%}
