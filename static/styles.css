@@ -264,6 +264,29 @@ section .content h2{
   background-attachment: fixed;
 }
 
+.button {
+  display: block;
+  width: 115px;
+  height: 45px;
+  background: rgb(79, 202, 85);
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+}
+
+#create_button{
+  color: rgb(219, 219, 219);
+  transition: transform .2s;
+  margin: 0 auto;
+}
+
+#create_button:hover {
+  transform: scale(1.2);
+  color: rgb(136, 248, 101);
+}
+
 @media (max-width:1366px ){
   section .content h2{
     font-size: 20vw;
