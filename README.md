@@ -1,3 +1,6 @@
+
+<img src="static\images\Annotation 2020-05-20 231446.png"/>
+<img src="static\images\Annotation 2020-05-20 231601.png"/>
 # 12Run - A community-driven running event web application
 
 This web application serves as a database index of community local running events contributed and hosted by users of the public themselves.
@@ -15,8 +18,7 @@ My motivation for this project is to break down these walls by providing the loc
 
 
 ## Demo
-<img src=""/>
-  
+
 A live demo can be found [here](https://kc12run.herokuapp.com/).
 
 ## UX
@@ -76,23 +78,22 @@ Delete the event
 ### Features Left to Implement
 - Introduce functionality of likes/im going so that will have a +1 increment each time a user clicks on it.
 - Allow users to upload image files to the website, instead of having to upload the image URL or convert their image to a URL
-- Introduce a new dataset users can create called workout programmes. Where users can share their workout routine they enjoy doing.
 - Validate search query by preventing users to type in "[]" in search bar.
 
 ## Testing
 #### 1. Create:
-**•	Add a new artwork archive to the database**
+**•	Add a new event archive to the database**
 
 All the form input boxes are able to fetch data to the database when the user fills up the form and press the submit button. There is also a javascript validator in date/time, event name, duration, location to prevent the user from submitting an empty field.
 
 Selecting the category is optional if host is not sure. Image is also optional and a default image will be added.
 
-**•	Create a comment on each individual artwork**
+**•	Create a comment on each individual event**
 
 The comment form is successful in fetching input data to the database with both the commenter’s name and comment. Every single comment entry made on each individual artwork is added to the database as an object in an array called ‘reviews’, under the specific object ID given for each event. Once the user has submitted the comment, the comments will show up after the page has automatically refreshed.
 
 #### 2. Read:
-**•	Searchbox for artwork titles**
+**•	Searchbox for event titles**
 
 The search function is able to perform its function by filtering out the results according to the search query input using the regular expression, which would ignore any case sensitivity and parse in the search query as a string.
 
@@ -103,7 +104,7 @@ However, there is a limitation I found during testing that adding in "[]" would 
 In addition to the search function, the user has the ability to narrow down their searches by filtering out the results based on the each category/difficulty that the event has been assigned to. 
 
 #### 3. Update:
-**•	Edit the details of the existing artworks**
+**•	Edit the details of the existing event**
 
 The default details of the existing events from the database will reflect in the input form. This is to ensure that the user is aware of the changes they are making to the artwork archive. Once the form is submitted, the data of the event archive will be updated to the database.
 
@@ -112,11 +113,11 @@ To ensure compatibility and responsiveness, the site was tested across multiple 
 
 All links have been tested to ensure correct re-direction to desired destination.
 
-logo -> index.template.html
-Search Events, join now -> show_programmes.template.html
-event card -> programme_details.template.html
-create -> create_programme.template.html 
-edit icon -> edit_programme.template.html
+- logo -> index.template.html
+- Search Events, join now -> show_programmes.template.html
+- event card -> programme_details.template.html
+- create -> create_programme.template.html 
+- edit icon -> edit_programme.template.html
 
 ## Deployment
 This site is hosted using Heroku, deployed directly from the master branch and Github. The deployed site will update automatically upon new commits to the master branch.
