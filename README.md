@@ -32,8 +32,8 @@ My goal is to allow users to easily search for events/sessions by entering keywo
 I opted to choosing pictures which showcases people training together of all different levels of fitness, to eliminate the underlying concern that one has to be extremely fit to be part of the running community. I segregated the information into seperate cards, giving each a generous amount of space between one another for ease of reading. To prevent overloading of information in database, i used pagination to split excess data into seperate pages to keep the page neat and tidy.
 
 # wireframe mockup
-<img height="100" src="static\images\IMG_0369.jpg"/>
-<img height="100" src="static\images\IMG_0370.jpg"/>
+<img height="300" src="static\images\IMG_0369.jpg"/>
+<img height="300" src="static\images\IMG_0370.jpg"/>
 
 
 ## Technologies
